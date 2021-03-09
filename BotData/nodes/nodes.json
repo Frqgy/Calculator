@@ -1,0 +1,875 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "x": 148,
+      "y": 188
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Creator: Frqgy#7946",
+          "value": "",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 303,
+      "y": 174,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "00FF08",
+        "Help Menu",
+        "",
+        "Calculator Bot",
+        "",
+        "",
+        "Do \"=math (number) (operation) (number)\" for me to calulate your equation!",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "math",
+      "guid": "876d530d-6cf2-4ff9-a947-90c4e71470de",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "6e11e513-dc60-4658-88bf-078232a26050"
+          ]
+        }
+      ],
+      "x": 115,
+      "y": 963
+    },
+    {
+      "type": "response",
+      "name": "StoreNum",
+      "guid": "6e11e513-dc60-4658-88bf-078232a26050",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "Num1",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "35f899d0-ab35-47b1-aae9-01860d1149dd"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "876d530d-6cf2-4ff9-a947-90c4e71470de"
+        }
+      ],
+      "x": 266,
+      "y": 955,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "Num1",
+        "Number",
+        "temp",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "StoreOp",
+      "guid": "35f899d0-ab35-47b1-aae9-01860d1149dd",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "Op1",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "09eb9416-b2e7-455f-b9d1-b9ddd06da814"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6e11e513-dc60-4658-88bf-078232a26050"
+        }
+      ],
+      "x": 422,
+      "y": 957,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "Op1",
+        "Text",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "StoreNum2",
+      "guid": "09eb9416-b2e7-455f-b9d1-b9ddd06da814",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "Num2",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "74fefd57-e425-4cba-96b9-541c0a2175cd"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "35f899d0-ab35-47b1-aae9-01860d1149dd"
+        }
+      ],
+      "x": 578,
+      "y": 957,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "Num2",
+        "Number",
+        "temp",
+        "3"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "GetOperation",
+      "guid": "74fefd57-e425-4cba-96b9-541c0a2175cd",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "be3e0822-11aa-4b1f-a763-14a662337262"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": [
+            "2f062b58-db8d-4488-8253-7427e9e8b82d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "09eb9416-b2e7-455f-b9d1-b9ddd06da814"
+        }
+      ],
+      "x": 737,
+      "y": 953,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "Operations.csv",
+        "Operation",
+        "${tempVars.Op1}",
+        "Operation",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "SetLastOp",
+      "guid": "be3e0822-11aa-4b1f-a763-14a662337262",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "a86b74c8-8189-459f-99cb-f2c276b168b4"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "74fefd57-e425-4cba-96b9-541c0a2175cd"
+        }
+      ],
+      "x": 901,
+      "y": 949,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "Op",
+        "${tempVars.Operation.Number}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "CheckIfOp",
+      "guid": "a86b74c8-8189-459f-99cb-f2c276b168b4",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "479e4644-669d-47da-8f26-61f6bb3a8805"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "6653be81-2345-4a27-a432-c9fd50b7a1e3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "be3e0822-11aa-4b1f-a763-14a662337262"
+        }
+      ],
+      "x": 904,
+      "y": 1056,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "Op",
+        "equal to",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "EditNum1",
+      "guid": "479e4644-669d-47da-8f26-61f6bb3a8805",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "93005457-b573-4809-a687-07ba899fecb8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a86b74c8-8189-459f-99cb-f2c276b168b4"
+        }
+      ],
+      "x": 1064,
+      "y": 1059,
+      "rtype": "Variable",
+      "rsubtype": "Edit Variable",
+      "formdata": [
+        "Num1",
+        "temp",
+        "+",
+        "${tempVars.Num2}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "SendResponse",
+      "guid": "93005457-b573-4809-a687-07ba899fecb8",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "479e4644-669d-47da-8f26-61f6bb3a8805"
+        }
+      ],
+      "x": 1227,
+      "y": 1062,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.Num1}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "CheckIfOp_1",
+      "guid": "6653be81-2345-4a27-a432-c9fd50b7a1e3",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "41487093-7522-40ea-8b80-b0e4c4b5f480"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "383e0dd2-c513-484e-ac75-e64092a58380"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a86b74c8-8189-459f-99cb-f2c276b168b4"
+        }
+      ],
+      "x": 907,
+      "y": 1195,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "Op",
+        "equal to",
+        "2"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "CheckIfOp_2",
+      "guid": "383e0dd2-c513-484e-ac75-e64092a58380",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "46259dd3-0287-405f-84a8-478f0a830b87"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "ecd87ea3-ae5f-4555-b93f-21f8f03d50e8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6653be81-2345-4a27-a432-c9fd50b7a1e3"
+        }
+      ],
+      "x": 908,
+      "y": 1334,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "Op",
+        "equal to",
+        "3"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "CheckIfOp_3",
+      "guid": "ecd87ea3-ae5f-4555-b93f-21f8f03d50e8",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "88869aa2-de84-4986-8250-39924d57531f"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "a8b876da-8044-4747-856e-bcfd32e069a4"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "383e0dd2-c513-484e-ac75-e64092a58380"
+        }
+      ],
+      "x": 910,
+      "y": 1472,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "Op",
+        "equal to",
+        "4"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "EditNum1_1",
+      "guid": "41487093-7522-40ea-8b80-b0e4c4b5f480",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "9ae9083e-e36a-45c0-929d-ca38dad0faa6"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6653be81-2345-4a27-a432-c9fd50b7a1e3"
+        }
+      ],
+      "x": 1072,
+      "y": 1210,
+      "rtype": "Variable",
+      "rsubtype": "Edit Variable",
+      "formdata": [
+        "Num1",
+        "temp",
+        "-",
+        "${tempVars.Num2}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "EditNum1_2",
+      "guid": "46259dd3-0287-405f-84a8-478f0a830b87",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "43cca574-ad0a-4333-a9ea-cbe212890e0e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "383e0dd2-c513-484e-ac75-e64092a58380"
+        }
+      ],
+      "x": 1074,
+      "y": 1355,
+      "rtype": "Variable",
+      "rsubtype": "Edit Variable",
+      "formdata": [
+        "Num1",
+        "temp",
+        "x",
+        "${tempVars.Num2}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "EditNum1_3",
+      "guid": "88869aa2-de84-4986-8250-39924d57531f",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "a32e0573-7a80-4dc9-beef-bb8c2f02d2a3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ecd87ea3-ae5f-4555-b93f-21f8f03d50e8"
+        }
+      ],
+      "x": 1084,
+      "y": 1491,
+      "rtype": "Variable",
+      "rsubtype": "Edit Variable",
+      "formdata": [
+        "Num1",
+        "temp",
+        "/",
+        "${tempVars.Num2}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "SendResponse_1",
+      "guid": "9ae9083e-e36a-45c0-929d-ca38dad0faa6",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "41487093-7522-40ea-8b80-b0e4c4b5f480"
+        }
+      ],
+      "x": 1237,
+      "y": 1191,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.Num1}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "SendResponse_2",
+      "guid": "43cca574-ad0a-4333-a9ea-cbe212890e0e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "46259dd3-0287-405f-84a8-478f0a830b87"
+        }
+      ],
+      "x": 1240,
+      "y": 1343,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.Num1}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "SendResponse_3",
+      "guid": "a32e0573-7a80-4dc9-beef-bb8c2f02d2a3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "88869aa2-de84-4986-8250-39924d57531f"
+        }
+      ],
+      "x": 1247,
+      "y": 1482,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.Num1}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Error_1",
+      "guid": "a8b876da-8044-4747-856e-bcfd32e069a4",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Bot made by Frqgy#7946",
+          "value": "",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ecd87ea3-ae5f-4555-b93f-21f8f03d50e8"
+        }
+      ],
+      "x": 1086,
+      "y": 1599,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF6363",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Error! The command must be like this:\n=math (number) (operation(ex +, -, x, /)) (number)\nMake sure to put spaces!\n\nEx: =math 17 + 17",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Error_1_1",
+      "guid": "2f062b58-db8d-4488-8253-7427e9e8b82d",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Bot made by Frqgy#7946",
+          "value": "",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "74fefd57-e425-4cba-96b9-541c0a2175cd"
+        }
+      ],
+      "x": 743,
+      "y": 1099,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF6363",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Error! The command must be like this:\n=math (number) (operation(ex +, -, x, /)) (number)\nMake sure to put spaces!\n\nEx: =math 17 + 17",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    }
+  ]
+}
